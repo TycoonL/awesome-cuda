@@ -3,14 +3,14 @@
 #include "iostream"
 #include "cuda.h"
 
-//核函数
+//潞脣潞炉脢媒
 __global__ void hello_from_device()
 {
 	int bid_x = blockIdx.x;
 	int bid_y = blockIdx.y;
 	int tid = threadIdx.x;
-	int threadID = blockIdx.x*blockDim.x + threadIdx.x;
-	printf("hello world from block (%d,%d) and thread %d\n", bid_x,bid_y, tid,threadID);
+	//int threadID = blockIdx.x*blockDim.x + threadIdx.x;
+	printf("hello world from block (%d,%d) and thread %d\n", bid_x,bid_y, tid);
 }
 
 
@@ -18,6 +18,6 @@ int main(void)
 {
 	dim3 gridsize(2, 2);
 	hello_from_device<<<gridsize,3 >>>();
-	cudaDeviceSynchronize();//同步主机与设备
+	cudaDeviceSynchronize();//脥卢虏陆脰梅禄煤脫毛脡猫卤赂
 	return 0;
 }
